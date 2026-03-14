@@ -31,52 +31,66 @@ function Contact() {
         }}>
           <div style={{ marginBottom: '24px' }}>
             <p style={{
-              fontSize: '20px',
+              fontSize: '24px',
               color: '#1f2937',
-              marginBottom: '8px'
+              marginBottom: '16px'
             }}>
-              <span style={{ fontSize: '24px', marginRight: '12px' }}>📞</span>
-              <strong>Phone</strong>
+              <span style={{ fontSize: '48px', marginRight: '16px' }}>💬</span>
             </p>
             <p style={{
-              fontSize: '18px',
-              color: '#2563eb',
-              marginBottom: '4px',
+              fontSize: '20px',
+              color: '#1f2937',
+              marginBottom: '8px',
               fontWeight: 'bold'
-            }}>09123812588</p>
+            }}>Let's Connect on WhatsApp</p>
             <p style={{
-              fontSize: '18px',
-              color: '#2563eb',
-              fontWeight: 'bold'
-            }}>07072808487</p>
+              fontSize: '16px',
+              color: '#6b7280',
+              marginBottom: '24px'
+            }}>Click the button below to reach out via WhatsApp</p>
+            <a
+              href="https://wa.me/09123812588"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '14px 32px',
+                backgroundColor: '#25d366',
+                color: 'white',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.3s',
+                fontSize: '16px'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = '#1fb855';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(37, 211, 102, 0.3)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = '#25d366';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <span>💬</span>
+              Message on WhatsApp
+            </a>
           </div>
           
           <div style={{
             borderTop: '1px solid #e0e7ff',
-            paddingTop: '24px'
+            paddingTop: '24px',
+            textAlign: 'center'
           }}>
             <p style={{
-              fontSize: '20px',
-              color: '#1f2937',
-              marginBottom: '8px'
-            }}>
-              <span style={{ fontSize: '24px', marginRight: '12px' }}>📧</span>
-              <strong>Email</strong>
-            </p>
-            <a
-              href="mailto:sikyakwambo@gmail.com"
-              style={{
-                fontSize: '18px',
-                color: '#2563eb',
-                textDecoration: 'none',
-                fontWeight: 'bold',
-                transition: 'color 0.3s'
-              }}
-              onMouseOver={(e) => e.target.style.color = '#1e40af'}
-              onMouseOut={(e) => e.target.style.color = '#2563eb'}
-            >
-              sikyakwambo@gmail.com
-            </a>
+              fontSize: '14px',
+              color: '#6b7280'
+            }}>Phone: <strong>09123812588</strong></p>
           </div>
         </div>
       </div>

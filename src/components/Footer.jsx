@@ -2,13 +2,7 @@ import React from 'react';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    { name: 'Twitter', icon: '𝕏', url: '#' },
-    { name: 'LinkedIn', icon: '💼', url: '#' },
-    { name: 'GitHub', icon: '🐙', url: '#' },
-    { name: 'Email', icon: '✉️', url: '#' },
-  ];
+  const whatsappNumber = '09123812588';
 
   return (
     <footer style={{
@@ -61,7 +55,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Social Icons */}
+          {/* Connect via WhatsApp */}
           <div>
             <h4 style={{
               fontSize: '18px',
@@ -69,37 +63,36 @@ function Footer() {
               marginBottom: '16px',
               color: '#f8fafc'
             }}>Connect</h4>
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  title={link.name}
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '50%',
-                    backgroundColor: 'rgba(248, 250, 252, 0.1)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#f8fafc',
-                    textDecoration: 'none',
-                    fontSize: '18px',
-                    transition: 'all 0.3s',
-                    cursor: 'pointer'
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.backgroundColor = '#60a5fa';
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(248, 250, 252, 0.1)';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                  }}
-                >{link.icon}</a>
-              ))}
-            </div>
+            <a
+              href={`https://wa.me/${whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '10px 16px',
+                backgroundColor: '#25d366',
+                color: 'white',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.3s',
+                fontSize: '14px'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = '#1fb855';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = '#25d366';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              <span>💬</span>
+              WhatsApp
+            </a>
           </div>
         </div>
 
