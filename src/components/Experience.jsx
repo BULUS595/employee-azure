@@ -16,24 +16,6 @@ function Experience() {
     },
   ];
 
-import React from 'react';
-
-function Experience() {
-  const experiences = [
-    {
-      company: 'Azure Tech',
-      position: 'Team Member',
-      description: 'Actively involved in technology projects and innovation initiatives. Contributing to the team\'s mission of leveraging technology for positive change.',
-      highlights: [
-        'Collaborate on technology and innovation projects',
-        'Support team initiatives and strategic planning',
-        'Bring legal perspective to tech solutions',
-        'Foster innovation and creative problem-solving',
-      ],
-      icon: '💼',
-    },
-  ];
-
   return (
     <section id="experience" style={{
       padding: '64px 20px',
@@ -119,9 +101,6 @@ function Experience() {
       </div>
     </section>
   );
-}
-
-export default Experience;
 }
 
 export default Experience;

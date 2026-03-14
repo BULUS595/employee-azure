@@ -10,18 +10,6 @@ function Footer() {
     { name: 'Email', icon: '✉️', url: '#' },
   ];
 
-import React from 'react';
-
-function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    { name: 'Twitter', icon: '𝕏', url: '#' },
-    { name: 'LinkedIn', icon: '💼', url: '#' },
-    { name: 'GitHub', icon: '🐙', url: '#' },
-    { name: 'Email', icon: '✉️', url: '#' },
-  ];
-
   return (
     <footer style={{
       background: 'linear-gradient(135deg, #1e40af, #2563eb)',
@@ -127,9 +115,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
-
-export default Footer;
 }
 
 export default Footer;
