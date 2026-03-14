@@ -12,7 +12,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div style={{ minHeight: '100vh', backgroundColor: '#fff' }}>
       <Navigation menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       
       <main>

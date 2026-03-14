@@ -19,59 +19,90 @@ function Navigation({ menuOpen, setMenuOpen }) {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-white shadow-md z-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="#home" className="text-2xl font-bold text-blue-600">
-              Sikya
-            </a>
-          </div>
+    <nav style={{
+      position: 'sticky',
+      top: 0,
+      zIndex: 999,
+      backgroundColor: '#fff',
+      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+    }}>
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '16px 24px '
+      }}>
+        {/* Logo */}
+        <a href="#home" style={{
+          fontSize: '24px',
+          fontWeight: 'bold',
+          color: '#2563eb',
+          textDecoration: 'none'
+        }}>
+          Sikya
+        </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item.href)}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+        {/* Desktop Navigation */}
+        <div style={{
+          display: window.innerWidth >= 768 ? 'flex' : 'none',
+          gap: '32px',
+          listStyle: 'none'
+        }}>
+          {navItems.map((item) => (
             <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              key={item.name}
+              onClick={() => handleNavClick(item.href)}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#374151',
+                cursor: 'pointer',
+                fontSize: '16px',
+                fontWeight: '500',
+                transition: 'color 0.3s'
+              }}
+              onMouseOver={(e) => e.target.style.color = '#2563eb'}
+              onMouseOut={(e) => e.target.style.color = '#374151'}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-              </svg>
+              {item.name}
             </button>
-          </div>
+          ))}
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 animate-slideDown">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item.href)}
-                className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          style={{
+            display: window.innerWidth < 768 ? 'flex' : 'none',
+            flexDirection: 'column',
+            gap: '4px',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer'
+          }}
+        >
+          <span style={{
+            width: '24px',
+            height: '2px',
+            backgroundColor: '#374151',
+            borderRadius: '9999px'
+          }}></span>
+          <span style={{
+            width: '24px',
+            height: '2px',
+            backgroundColor: '#374151',
+            borderRadius: '9999px'
+          }}></span>
+          <span style={{
+            width: '24px',
+            height: '2px',
+            backgroundColor: '#374151',
+            borderRadius: '9999px'
+          }}></span>
+        </button>
+      </div>
     </nav>
   );
 }

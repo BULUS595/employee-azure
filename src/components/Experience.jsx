@@ -16,37 +16,100 @@ function Experience() {
     },
   ];
 
+import React from 'react';
+
+function Experience() {
+  const experiences = [
+    {
+      company: 'Azure Tech',
+      position: 'Team Member',
+      description: 'Actively involved in technology projects and innovation initiatives. Contributing to the team\'s mission of leveraging technology for positive change.',
+      highlights: [
+        'Collaborate on technology and innovation projects',
+        'Support team initiatives and strategic planning',
+        'Bring legal perspective to tech solutions',
+        'Foster innovation and creative problem-solving',
+      ],
+      icon: '💼',
+    },
+  ];
+
   return (
-    <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8 bg-white scroll-mt-16">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Experience</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded"></div>
+    <section id="experience" style={{
+      padding: '64px 20px',
+      backgroundColor: '#fff',
+      scrollMarginTop: '64px'
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <h2 style={{
+            fontSize: '32px',
+            fontWeight: 'bold',
+            color: '#1f2937',
+            marginBottom: '16px'
+          }}>Experience</h2>
+          <div style={{
+            width: '60px',
+            height: '4px',
+            background: 'linear-gradient(90deg, #60a5fa, #2563eb)',
+            borderRadius: '9999px',
+            margin: '16px auto 0'
+          }}></div>
         </div>
 
-        <div className="space-y-8">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="bg-gradient-to-r from-blue-50 to-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 card-hover border-t-4 border-blue-600"
+              style={{
+                background: 'linear-gradient(to right, #f0f9ff, #fff)',
+                padding: '32px',
+                borderRadius: '12px',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                borderTop: '4px solid #2563eb',
+                transition: 'all 0.3s'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.transform = 'translateY(-4px)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
             >
-              <div className="flex items-start gap-4 mb-6">
-                <span className="text-4xl">{exp.icon}</span>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900">{exp.position}</h3>
-                  <p className="text-lg text-blue-600 font-semibold">{exp.company}</p>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '24px' }}>
+                <span style={{ fontSize: '32px' }}>{exp.icon}</span>
+                <div style={{ flex: 1 }}>
+                  <h3 style={{
+                    fontSize: '24px',
+                    fontWeight: 'bold',
+                    color: '#1f2937'
+                  }}>{exp.position}</h3>
+                  <p style={{
+                    fontSize: '18px',
+                    color: '#2563eb',
+                    fontWeight: '600'
+                  }}>{exp.company}</p>
                 </div>
               </div>
               
-              <p className="text-gray-700 leading-relaxed mb-6">{exp.description}</p>
+              <p style={{ color: '#6b7280', lineHeight: '1.6', marginBottom: '24px' }}>{exp.description}</p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: window.innerWidth > 768 ? 'repeat(2, 1fr)' : '1fr',
+                gap: '16px'
+              }}>
                 {exp.highlights.map((highlight, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700">{highlight}</span>
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                    <span style={{
+                      fontSize: '20px',
+                      color: '#2563eb',
+                      marginTop: '4px',
+                      flexShrink: 0
+                    }}>✓</span>
+                    <span style={{ color: '#6b7280' }}>{highlight}</span>
                   </div>
                 ))}
               </div>
@@ -56,6 +119,9 @@ function Experience() {
       </div>
     </section>
   );
+}
+
+export default Experience;
 }
 
 export default Experience;

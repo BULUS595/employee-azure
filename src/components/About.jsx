@@ -2,52 +2,72 @@ import React from 'react';
 
 function About() {
   return (
-    <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-white scroll-mt-16">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">About Me</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded"></div>
+    <section id="about" style={{
+      padding: '64px 20px',
+      backgroundColor: '#fff',
+      scrollMarginTop: '64px'
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <h2 style={{
+            fontSize: '32px',
+            fontWeight: 'bold',
+            color: '#1f2937',
+            marginBottom: '16px'
+          }}>About Me</h2>
+          <div style={{
+            width: '60px',
+            height: '4px',
+            background: 'linear-gradient(90deg, #60a5fa, #2563eb)',
+            borderRadius: '9999px',
+            margin: '16px auto 0'
+          }}></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Background Card */}
-          <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
-            <div className="mb-4">
-              <svg className="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C6.5 6.253 2 10.753 2 16.253s4.5 10 10 10 10-4.5 10-10S17.5 6.253 12 6.253z" />
-              </svg>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: window.innerWidth > 768 ? 'repeat(3, 1fr)' : '1fr',
+          gap: '32px'
+        }}>
+          {[{
+            title: 'Background',
+            icon: '📍',
+            desc: 'Sikya is a passionate law student who brings a unique blend of legal knowledge and technological innovation to everything she does.'
+          }, {
+            title: 'Education',
+            icon: '📚',
+            desc: 'Currently a Law Student at the American University of Nigeria, Yola. Previously completed secondary education at Winners Comprehensive High School.'
+          }, {
+            title: 'Key Traits',
+            icon: '⚡',
+            desc: 'Friendly, hardworking, and passionate about both law and technology. Committed to using innovation to make a positive impact.'
+          }].map((item, idx) => (
+            <div key={idx} style={{
+              backgroundColor: '#f0f9ff',
+              padding: '32px',
+              borderRadius: '12px',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.3s',
+              cursor: 'pointer'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)';
+              e.currentTarget.style.transform = 'translateY(-8px)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}>
+              <div style={{ marginBottom: '16px', fontSize: '24px' }}>{item.icon}</div>
+              <h3 style={{
+                fontSize: '20px',
+                fontWeight: '600',
+                color: '#1f2937',
+                marginBottom: '12px'
+              }}>{item.title}</h3>
+              <p style={{ color: '#6b7280', lineHeight: '1.6' }}>{item.desc}</p>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">Background</h3>
-            <p className="text-gray-700 leading-relaxed">
-              Sikya is a passionate law student who brings a unique blend of legal knowledge and technological innovation to everything she does. She is hardworking and dedicated to her studies.
-            </p>
-          </div>
-
-          {/* Education Card */}
-          <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
-            <div className="mb-4">
-              <svg className="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C6.5 6.253 2 10.753 2 16.253s4.5 10 10 10 10-4.5 10-10S17.5 6.253 12 6.253z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">Education</h3>
-            <p className="text-gray-700 leading-relaxed">
-              Currently a Law Student at the American University of Nigeria, Yola. Previously completed secondary education at Winners Comprehensive High School with distinction.
-            </p>
-          </div>
-
-          {/* Traits Card */}
-          <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
-            <div className="mb-4">
-              <svg className="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">Key Traits</h3>
-            <p className="text-gray-700 leading-relaxed">
-              Friendly, hardworking, and passionate about both law and technology. Committed to using innovation to make a positive impact on society and her community.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>

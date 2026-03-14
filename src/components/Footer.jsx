@@ -10,57 +10,126 @@ function Footer() {
     { name: 'Email', icon: '✉️', url: '#' },
   ];
 
+import React from 'react';
+
+function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  const socialLinks = [
+    { name: 'Twitter', icon: '𝕏', url: '#' },
+    { name: 'LinkedIn', icon: '💼', url: '#' },
+    { name: 'GitHub', icon: '🐙', url: '#' },
+    { name: 'Email', icon: '✉️', url: '#' },
+  ];
+
   return (
-    <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <footer style={{
+      background: 'linear-gradient(135deg, #1e40af, #2563eb)',
+      color: '#f8fafc',
+      padding: '48px 20px',
+      marginTop: '64px'
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: window.innerWidth > 768 ? 'repeat(3, 1fr)' : '1fr',
+          gap: '32px',
+          marginBottom: '32px'
+        }}>
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-blue-400 mb-2">Sikya Kwambo</h3>
-            <p className="text-gray-400">
+            <h3 style={{
+              fontSize: '24px',
+              fontWeight: 'bold',
+              color: '#60a5fa',
+              marginBottom: '8px'
+            }}>Sikya Kwambo</h3>
+            <p style={{ color: 'rgba(248, 250, 252, 0.7)' }}>
               Law Student | Tech Enthusiast | Azure Tech Team Member
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><a href="#home" className="text-gray-400 hover:text-blue-400 transition-colors">Home</a></li>
-              <li><a href="#about" className="text-gray-400 hover:text-blue-400 transition-colors">About</a></li>
-              <li><a href="#education" className="text-gray-400 hover:text-blue-400 transition-colors">Education</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-blue-400 transition-colors">Contact</a></li>
+            <h4 style={{
+              fontSize: '18px',
+              fontWeight: '600',
+              marginBottom: '16px',
+              color: '#f8fafc'
+            }}>Quick Links</h4>
+            <ul style={{ listStyle: 'none' }}>
+              {['Home', 'About', 'Education', 'Contact'].map((link, idx) => (
+                <li key={idx} style={{ marginBottom: '8px' }}>
+                  <a href={`#${link.toLowerCase()}`} style={{
+                    color: 'rgba(248, 250, 252, 0.7)',
+                    textDecoration: 'none',
+                    transition: 'color 0.3s'
+                  }}
+                  onMouseOver={(e) => e.target.style.color = '#f8fafc'}
+                  onMouseOut={(e) => e.target.style.color = 'rgba(248, 250, 252, 0.7)'}
+                  >{link}</a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Social Links */}
+          {/* Social Icons */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Connect</h4>
-            <div className="flex space-x-4">
+            <h4 style={{
+              fontSize: '18px',
+              fontWeight: '600',
+              marginBottom: '16px',
+              color: '#f8fafc'
+            }}>Connect</h4>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               {socialLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.url}
                   title={link.name}
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors duration-200 transform hover:scale-110"
-                >
-                  <span className="text-lg">{link.icon}</span>
-                </a>
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(248, 250, 252, 0.1)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#f8fafc',
+                    textDecoration: 'none',
+                    fontSize: '18px',
+                    transition: 'all 0.3s',
+                    cursor: 'pointer'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = '#60a5fa';
+                    e.currentTarget.style.transform = 'translateY(-4px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(248, 250, 252, 0.1)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >{link.icon}</a>
               ))}
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-800 my-8"></div>
-
-        {/* Copyright */}
-        <div className="text-center text-gray-400">
+        <div style={{
+          borderTop: '1px solid rgba(248, 250, 252, 0.1)',
+          paddingTop: '24px',
+          textAlign: 'center',
+          color: 'rgba(248, 250, 252, 0.7)'
+        }}>
           <p>&copy; {currentYear} Sikya Kwambo. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
+}
+
+export default Footer;
 }
 
 export default Footer;

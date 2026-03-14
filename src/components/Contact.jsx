@@ -18,120 +18,243 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to a backend service
     console.log('Form submitted:', formData);
     setSubmitted(true);
     setFormData({ name: '', email: '', message: '' });
-    
-    // Reset the success message after 3 seconds
     setTimeout(() => setSubmitted(false), 3000);
   };
 
   return (
-    <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-white scroll-mt-16">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded"></div>
-          <p className="text-lg text-gray-600 mt-4">
-            Have a question or want to collaborate? Feel free to reach out!
-          </p>
+    <section id="contact" style={{
+      padding: '64px 20px',
+      backgroundColor: '#fff',
+      scrollMarginTop: '64px'
+    }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <h2 style={{
+            fontSize: '32px',
+            fontWeight: 'bold',
+            color: '#1f2937',
+            marginBottom: '16px'
+          }}>Get In Touch</h2>
+          <div style={{
+            width: '60px',
+            height: '4px',
+            background: 'linear-gradient(90deg, #60a5fa, #2563eb)',
+            borderRadius: '9999px',
+            margin: '16px auto 0'
+          }}></div>
+          <p style={{
+            fontSize: '18px',
+            color: '#6b7280',
+            marginTop: '16px'
+          }}>Have a question? Feel free to reach out!</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: window.innerWidth > 768 ? 'repeat(2, 1fr)' : '1fr',
+          gap: '32px'
+        }}>
           {/* Contact Info */}
-          <div className="space-y-6">
-            <div className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-md">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">✉️</span>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Email</h3>
-                  <p className="text-gray-700">Get in touch via email</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            {[{
+              icon: '✉️',
+              title: 'Email',
+              desc: 'Get in touch via email'
+            }, {
+              icon: '📍',
+              title: 'Location',
+              desc: 'American University of Nigeria, Yola'
+            }, {
+              icon: '⏰',
+              title: 'Availability',
+              desc: 'Available for collaborations'
+            }].map((item, idx) => (
+              <div key={idx} style={{
+                backgroundColor: '#f0f9ff',
+                padding: '24px',
+                borderRadius: '12px',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                  <span style={{ fontSize: '24px' }}>{item.icon}</span>
+                  <div>
+                    <h3 style={{
+                      fontSize: '18px',
+                      fontWeight: '600',
+                      color: '#1f2937',
+                      marginBottom: '8px'
+                    }}>{item.title}</h3>
+                    <p style={{ color: '#6b7280' }}>{item.desc}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-md">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">📍</span>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Location</h3>
-                  <p className="text-gray-700">American University of Nigeria, Yola</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-md">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">⏰</span>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Availability</h3>
-                  <p className="text-gray-700">Available for collaborations and opportunities</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* Contact Form */}
           <div>
-            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-lg">
-              <div className="mb-6">
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
+            <form onSubmit={handleSubmit} style={{
+              backgroundColor: '#f0f9ff',
+              padding: '32px',
+              borderRadius: '12px',
+              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+            }}>
+              <div style={{ marginBottom: '24px' }}>
+                <label style={{
+                  display: 'block',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: '#1f2937',
+                  marginBottom: '8px'
+                }}>
                   Name
                 </label>
                 <input
                   type="text"
-                  id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-colors"
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '8px',
+                    fontSize: '16px',
+                    fontFamily: 'inherit',
+                    transition: 'all 0.3s',
+                    boxSizing: 'border-box'
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = '#2563eb';
+                    e.target.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = '#e5e7eb';
+                    e.target.style.boxShadow = 'none';
+                  }}
                   placeholder="Your name"
                 />
               </div>
 
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+              <div style={{ marginBottom: '24px' }}>
+                <label style={{
+                  display: 'block',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: '#1f2937',
+                  marginBottom: '8px'
+                }}>
                   Email
                 </label>
                 <input
                   type="email"
-                  id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-colors"
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '8px',
+                    fontSize: '16px',
+                    fontFamily: 'inherit',
+                    transition: 'all 0.3s',
+                    boxSizing: 'border-box'
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = '#2563eb';
+                    e.target.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = '#e5e7eb';
+                    e.target.style.boxShadow = 'none';
+                  }}
                   placeholder="Your email"
                 />
               </div>
 
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+              <div style={{ marginBottom: '24px' }}>
+                <label style={{
+                  display: 'block',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: '#1f2937',
+                  marginBottom: '8px'
+                }}>
                   Message
                 </label>
                 <textarea
-                  id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-colors resize-none"
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '8px',
+                    fontSize: '16px',
+                    fontFamily: 'inherit',
+                    transition: 'all 0.3s',
+                    boxSizing: 'border-box',
+                    resize: 'vertical'
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = '#2563eb';
+                    e.target.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = '#e5e7eb';
+                    e.target.style.boxShadow = 'none';
+                  }}
                   placeholder="Your message"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 transform hover:scale-105"
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  backgroundColor: '#2563eb',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                  transform: 'scale(1)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#1e40af';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = '#2563eb';
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = 'none';
+                }}
               >
                 Send Message
               </button>
 
               {submitted && (
-                <div className="mt-4 p-4 bg-green-100 text-green-800 rounded-lg animate-fadeIn">
+                <div style={{
+                  marginTop: '16px',
+                  padding: '16px',
+                  backgroundColor: '#dcfce7',
+                  color: '#166534',
+                  borderRadius: '8px',
+                  animation: 'fadeIn 0.6s ease-out'
+                }}>
                   ✓ Thank you! Your message has been sent successfully.
                 </div>
               )}

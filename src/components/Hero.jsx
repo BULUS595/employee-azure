@@ -2,30 +2,81 @@ import React from 'react';
 
 function Hero() {
   return (
-    <section id="home" className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white min-h-screen flex items-center justify-center scroll-mt-16">
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <section id="home" style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+      padding: '60px 20px',
+      paddingTop: '80px'
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
+          gap: '48px',
+          alignItems: 'center'
+        }}>
           {/* Left Content */}
-          <div className="fade-in-up">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          <div>
+            <h1 style={{
+              fontSize: window.innerWidth > 768 ? '48px' : '36px',
+              fontWeight: 'bold',
+              color: '#1e40af',
+              marginBottom: '16px'
+            }}>
               Sikya Kwambo
             </h1>
-            <p className="text-xl sm:text-2xl text-blue-600 font-semibold mb-6">
+            <p style={{
+              fontSize: '24px',
+              color: '#2563eb',
+              fontWeight: 'bold',
+              marginBottom: '16px'
+            }}>
               Law Student | Tech Enthusiast | Azure Tech Team Member
             </p>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+            <p style={{
+              fontSize: '18px',
+              color: '#374151',
+              marginBottom: '32px',
+              lineHeight: '1.8',
+              maxWidth: '600px'
+            }}>
               Sikya Kwambo is a passionate and friendly law student at the American University of Nigeria, Yola. She completed her secondary education at Winners Comprehensive High School. She is dedicated to learning, leadership, and using technology to make positive impact.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <a
                 href="#contact"
-                className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-center font-semibold"
+                style={{
+                  padding: '12px 32px',
+                  backgroundColor: '#2563eb',
+                  color: 'white',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.3s'
+                }}
+                onMouseOver={(e) => e.target.style.backgroundColor = '#1e40af'}
+                onMouseOut={(e) => e.target.style.backgroundColor = '#2563eb'}
               >
                 Get In Touch
               </a>
               <a
                 href="#about"
-                className="inline-block px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors duration-200 text-center font-semibold"
+                style={{
+                  padding: '12px 32px',
+                  border: '2px solid #2563eb',
+                  color: '#2563eb',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.3s'
+                }}
+                onMouseOver={(e) => e.target.style.backgroundColor = '#f0f9ff'}
+                onMouseOut={(e) => e.target.style.backgroundColor = 'transparent'}
               >
                 Learn More
               </a>
@@ -33,13 +84,33 @@ function Hero() {
           </div>
 
           {/* Right - Photo Placeholder */}
-          <div className="flex justify-center items-center">
-            <div className="w-64 h-64 sm:w-80 sm:h-80 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl shadow-xl flex items-center justify-center hover:shadow-2xl transition-shadow duration-300 animate-fadeIn">
-              <div className="text-center">
-                <svg className="w-24 h-24 text-blue-400 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{
+              width: window.innerWidth > 768 ? '320px' : '256px',
+              height: window.innerWidth > 768 ? '320px' : '256px',
+              background: 'linear-gradient(to bottom right, #dbeafe, #bfdbfe)',
+              borderRadius: '20px',
+              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              transition: 'box-shadow 0.3s'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)'}
+            onMouseOut={(e) => e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'}
+            >
+              <div style={{ textAlign: 'center' }}>
+                <svg style={{
+                  width: '96px',
+                  height: '96px',
+                  color: '#60a5fa',
+                  margin: '0 auto 16px',
+                  display: 'block'
+                }} fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                 </svg>
-                <p className="text-blue-600 font-semibold">Photo Placeholder</p>
+                <p style={{ color: '#2563eb', fontWeight: 'bold' }}>Photo Placeholder</p>
               </div>
             </div>
           </div>
