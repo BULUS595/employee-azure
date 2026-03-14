@@ -83,36 +83,29 @@ function Hero() {
             </div>
           </div>
 
-          {/* Right - Photo Placeholder */}
+          {/* Right - Photo */}
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{
-              width: window.innerWidth > 768 ? '320px' : '256px',
-              height: window.innerWidth > 768 ? '320px' : '256px',
-              background: 'linear-gradient(to bottom right, #dbeafe, #bfdbfe)',
-              borderRadius: '20px',
-              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              transition: 'box-shadow 0.3s'
-            }}
-            onMouseOver={(e) => e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)'}
-            onMouseOut={(e) => e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'}
-            >
-              <div style={{ textAlign: 'center' }}>
-                <svg style={{
-                  width: '96px',
-                  height: '96px',
-                  color: '#60a5fa',
-                  margin: '0 auto 16px',
-                  display: 'block'
-                }} fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
-                <p style={{ color: '#2563eb', fontWeight: 'bold' }}>Photo Placeholder</p>
-              </div>
-            </div>
+            <img
+              src="/sikya.jpg"
+              alt="Sikya Kwambo"
+              style={{
+                width: window.innerWidth > 768 ? '320px' : '256px',
+                height: window.innerWidth > 768 ? '320px' : '256px',
+                borderRadius: '20px',
+                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
+                objectFit: 'cover',
+                transition: 'box-shadow 0.3s, transform 0.3s',
+                cursor: 'pointer'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+                e.currentTarget.style.transform = 'scale(1.05)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
+            />
           </div>
         </div>
       </div>
